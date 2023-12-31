@@ -20,7 +20,7 @@ app.use(
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "/build")));
+app.use(express.static(path.join(__dirname + "/build")));
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
 //routes
