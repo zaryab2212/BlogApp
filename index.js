@@ -14,7 +14,7 @@ const app = express();
 // { origin: "http://localhost:3000/" }
 app.use(
   cors({
-    origin: "https://blog-app-by-zaryab-byw8nirre-zaryab2212.vercel.app",
+    origin: "blog-app-by-zaryab.vercel.app/",
   })
 );
 app.use(bodyParser.json());
