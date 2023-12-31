@@ -12,7 +12,7 @@ const app = express();
 
 //middleware
 // { origin: "http://localhost:3000/" }
-app.use(cors());
+app.use(cors({ origin: "blog-app-by-zaryab.vercel.app", credentials: true }));
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
