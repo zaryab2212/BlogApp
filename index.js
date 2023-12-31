@@ -15,7 +15,6 @@ const app = express();
 app.use(
   cors({
     origin: "https://blog-app-by-zaryab-byw8nirre-zaryab2212.vercel.app",
-    credentials: true,
   })
 );
 app.use(bodyParser.json());
