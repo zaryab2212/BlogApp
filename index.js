@@ -12,7 +12,6 @@ const app = express();
 
 //middleware
 // { origin: "http://localhost:3000/" }
-app.use(express.static(path.resolve(__dirname, "build")));
 app.use(
   cors({
     origin: "http://blog-app-by-zzaryab.vercel.app",
@@ -22,6 +21,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
+app.use(express.static(path.resolve(__dirname, "build")));
 // app.use(express.static(path.join(__dirname, "/build")));
 
 //routes
