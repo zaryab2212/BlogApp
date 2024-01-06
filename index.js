@@ -17,12 +17,12 @@ app.use(
     origin: "http://blog-app-by-zzaryab.vercel.app",
   })
 );
+app.use(express.static(path.join(__dirname, "/build")));
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
-app.use(express.static(path.resolve(__dirname, "build")));
-// app.use(express.static(path.join(__dirname, "/build")));
+// app.use(express.static(path.resolve(__dirname, "build")));
 
 //routes
 app.use("/auth", userRouter);
