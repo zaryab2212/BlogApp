@@ -12,11 +12,7 @@ const app = express();
 
 //middleware
 // { origin: "http://localhost:3000/" }
-app.use(
-  cors({
-    origin: "https://blog-app-by-zzaryab.vercel.app",
-  })
-);
+app.use(cors());
 app.use(express.static(path.join(__dirname, "/build")));
 app.use(bodyParser.json());
 app.use(express.json());
