@@ -1,5 +1,5 @@
 const fs = require("fs");
-const Post = require("../models/post");
+const Post = require("../models/post.js");
 const mongoose = require("mongoose");
 
 exports.createPost = async (req, res) => {
