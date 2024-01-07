@@ -13,6 +13,16 @@
     ],
   
     "routes":[
-      {"src": "/(.*)", "dest":"/index.js"}
+      {"src": "/auth", "dest":"index.js"
+    },
+      {"src": "/auth/(.*)", "dest":"index.js"
+    },
+      {"src": "/post", "dest":"index.js"
+    },
+    {"src": "/post/(.*)", "dest":"index.js"
+  },
+    {"src": "/(.*)", "dest":"build/"
+  }
+
     ]
   }
