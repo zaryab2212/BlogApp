@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "this is my blog app",
   "main": "index.js",
-  "proxy": "https://blog-app-by-zaryab-a9cemtx2u-zaryab2212.vercel.app",
+  "proxy": "https://blog-app-by-zzaryab.vercel.app",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
