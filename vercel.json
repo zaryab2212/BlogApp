@@ -13,11 +13,11 @@
     ],
   
     "routes":[
-  
+      {"src": "/auth", "dest":"index.js"
+    },
       {"src": "/auth/(.*)", "dest":"index.js"
     },
-      {"src": "/auth/login", "dest":"index.js"
-    },
+   
 
 
     {"src": "/post/(.*)", "dest":"index.js"
@@ -26,6 +26,12 @@
     {"src": "/", "dest":"build/index.html"
     },
     {"src": "/login", "dest":"build/index.html"
+    },
+    {"src": "/register", "dest":"build/index.html"
+    },
+    {"src": "/create-post", "dest":"build/index.html"
+    },
+    {"src": "/post-edit", "dest":"build/index.html"
     },
 
 
