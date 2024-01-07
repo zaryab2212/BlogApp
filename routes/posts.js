@@ -13,8 +13,8 @@ const { Authorized } = require("../services/Autorized");
 
 const router = express.Router();
 
-router.post("/create", Authorized, uploadMiddleware.single("file"), createPost);
 router.get("/", Authorized, getAllPosts);
+router.post("/create", Authorized, uploadMiddleware.single("file"), createPost);
 router.get("/single-post/:id", Authorized, getSinglePost);
 router.put(
   "/post-edit/:id",
