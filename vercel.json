@@ -16,6 +16,8 @@
   
       {"src": "/auth/(.*)", "dest":"index.js"
     },
+      {"src": "/auth/login", "dest":"index.js"
+    },
 
 
     {"src": "/post/(.*)", "dest":"index.js"
