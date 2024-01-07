@@ -12,14 +12,12 @@ const app = express();
 
 //middleware
 // { origin: "http://localhost:3000/" }
-app.use(
-  cors({ origin: "https://blog-app-by-zaryab-nq3blun1l-zaryab2212.vercel.app" })
-);
-app.use(express.static(path.resolve(__dirname, "build")));
+app.use(cors());
 // app.use(express.static(path.join(__dirname, "/build")));
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.static(path.resolve(__dirname, "build")));
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
 //routes
