@@ -16,6 +16,8 @@
     { "src": "/auth/create", "dest": "index.js" },
 
     { "src": "/auth/(.*)", "dest": "index.js" },
+    { "src": "/uploads", "dest": "index.js" },
+    { "src": "/uploads/(.*)", "dest": "index.js" },
 
     { "src": "/post", "dest": "index.js" },
     { "src": "/post/create ", "dest": "index.js" },
