@@ -12,6 +12,7 @@ const app = express();
 
 //middleware
 // { origin: "http://localhost:3000/" }
+//jkjk
 app.use(
   cors({
     origin: "https://blog-app-by-zzaryab.vercel.app", // Specify a specific origin
