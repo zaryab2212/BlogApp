@@ -11,19 +11,11 @@
   ],
 
   "routes": [
-    {
-      "src": "/auth/(.*)",
+    { "src": "/auth", "dest": "./index.js" },
 
-      "headers": {
-        "Access-Control-Allow-Origin": "https://blog-app-by-zzaryab.vercel.app",
-        "Access-Control-Allow-Methods": "GET, POST"
-      }
-    },
-    { "src": "/auth", "dest": "index.js" },
+    { "src": "/auth/(.*)", "dest": "./index.js" },
 
-    { "src": "/auth/(.*)", "dest": "index.js" },
-
-    { "src": "/post/(.*)", "dest": "index.js" },
+    { "src": "/post/(.*)", "dest": "./index.js" },
 
     { "src": "/", "dest": "build/index.html" },
     { "src": "/(.+)", "dest": "build/$1" }
