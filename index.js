@@ -12,7 +12,13 @@ const app = express();
 
 //middleware
 // { origin: "http://localhost:3000/" }
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://blog-app-by-zzaryab.vercel.app", // Specify a specific origin
+    methods: "GET,POST,PUT,DELETE", // Specify allowed methods
+    allowedHeaders: "Content-Type,Authorization", // Specify allowed headers
+  })
+);
 // app.use(express.static(path.join(__dirname, "/build")));
 app.use(bodyParser.json());
 app.use(express.json());
