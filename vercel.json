@@ -1,34 +1,31 @@
-
-
 {
-    "builds": [
-      {
-        "src": "index.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "build/**",
-        "use": "@vercel/static"
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "build/**",
+      "use": "@vercel/static"
+    }
+  ],
+
+  "routes": [
+    {
+      "src": "/auth/(.*)",
+
+      "headers": {
+        "Access-Control-Allow-Origin": "https://blog-app-by-zzaryab.vercel.app",
+        "Access-Control-Allow-Methods": "GET, POST"
       }
-    ],
-  
-    "routes":[
-      {"src": "/auth", "dest":"index.js"
     },
+    { "src": "/auth", "dest": "index.js" },
 
-      {"src": "/auth/(.*)", "dest":"index.js"
-    },
-   
+    { "src": "/auth/(.*)", "dest": "index.js" },
 
+    { "src": "/post/(.*)", "dest": "index.js" },
 
-    {"src": "/post/(.*)", "dest":"index.js"
-    },
-
-    {"src": "/", "dest":"build/index.html"
-    },
-    {"src": "/(.+)", "dest":"build/$1"
-  }
- 
-
-    ]
-  }
+    { "src": "/", "dest": "build/index.html" },
+    { "src": "/(.+)", "dest": "build/$1" }
+  ]
+}
