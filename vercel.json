@@ -19,10 +19,10 @@
     { "src": "/uploads", "dest": "index.js" },
     { "src": "/uploads/(.*)", "dest": "index.js" },
 
-    { "src": "/post", "dest": "index.js" },
-    { "src": "/post/create", "dest": "index.js" },
-    { "src": "/post/single-post/(.*)", "dest": "index.js" },
     { "src": "/post/post-edit/(.*)", "dest": "index.js" },
+    { "src": "/post/single-post/(.*)", "dest": "index.js" },
+    { "src": "/post/create", "dest": "index.js" },
+    { "src": "/post", "dest": "index.js" },
 
     { "src": "/", "dest": "build/index.html" },
     { "src": "/(.+)", "dest": "build/$1" }
