@@ -17,9 +17,9 @@
 
     { "src": "/auth/(.*)", "dest": "index.js" },
 
-    { "src": "/postss ", "dest": "index.js" },
-    { "src": "/postss/create ", "dest": "index.js" },
-    { "src": "/postss/(.*)", "dest": "index.js" },
+    { "src": "/post ", "dest": "index.js" },
+    { "src": "/post/create ", "dest": "index.js" },
+    { "src": "/post/(.*)", "dest": "index.js" },
 
     { "src": "/", "dest": "build/index.html" },
     { "src": "/(.+)", "dest": "build/$1" }

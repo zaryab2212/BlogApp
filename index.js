@@ -29,7 +29,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 //routes
 app.use("/auth", userRouter);
 
-app.use("/postss", postRouter);
+app.use("/post", postRouter);
 // app.get("/", Authorized, (req, res) => {
 //   // res.status(200).json({ ndhjdL: "kfdjkdj" });
 // });
