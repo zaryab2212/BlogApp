@@ -78,7 +78,7 @@ exports.loginuser = async (req, res) => {
 };
 exports.logOutuser = async (req, res) => {
   try {
-    res.status(200).cookie("token", "").json({
+    res.status(200).cookie("token", null).json({
       success: true,
 
       message: "User Loged Out",
@@ -116,6 +116,30 @@ exports.userProfile = async (req, res) => {
       success: false,
       error,
       message: "Unabel to fetch user",
+    });
+  }
+};
+exports.activeUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.user);
+    if (!user) {
+      return res.status(400).json({
+        success: false,
+
+        message: "try logingIn again with corract credentals",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      user,
+      message: "active user fetched",
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      error,
+      message: "Unabel to active fetch user",
     });
   }
 };

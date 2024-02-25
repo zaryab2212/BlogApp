@@ -1,21 +1,24 @@
 const fs = require("fs");
 const Post = require("../models/Post");
 const mongoose = require("mongoose");
+const { ImgUploder } = require("../services/cloudinaryy");
 
 exports.createPost = async (req, res) => {
+  // const { originalname, path } = req.file;
   try {
-    const { originalname, path } = req.file;
-    const parts = originalname.split(".");
-    const ext = parts[parts.length - 1];
-    const newPath = path + "." + ext;
-    fs.renameSync(path, newPath);
+    const result = await ImgUploder(req.file);
+    if (!result) {
+      return res
+        .status(400)
+        .json({ message: "error uploading image please try again" });
+    }
     const { title, summary, content } = req.body;
 
     const newPost = await Post.create({
       title,
       summary,
       content,
-      file: newPath,
+      file: result.url,
       author: req.user,
     });
 
@@ -39,18 +42,23 @@ exports.getAllPosts = async (req, res) => {
   try {
     const posts = await Post.find()
       .populate("author", ["name"])
-      .sort({ createdAt: -1 });
-    // if (!posts) {
-    //   return res.status(400).json({
-    //     success: false,
+      .sort({ createdAt: -1 })
+      .skip(6 * (req.query.page - 1))
+      .limit(6);
+    if (!posts) {
+      return res.status(400).json({
+        success: false,
 
-    //     message: "their in no post avaiable",
-    //   });
-    // }
+        message: "their in no post avaiable",
+      });
+    }
+
+    const totalDocument = await Post.countDocuments();
 
     res.status(200).json({
       success: true,
       posts,
+      totalDocument,
       message: "Post found successfully",
     });
   } catch (error) {
@@ -66,13 +74,13 @@ exports.getSinglePost = async (req, res) => {
   try {
     const post = await Post.findById(id).populate("author");
 
-    // if (!posts) {
-    //   return res.status(400).json({
-    //     success: false,
+    if (!post) {
+      return res.status(400).json({
+        success: false,
 
-    //     message: "their in no post avaiable",
-    //   });
-    // }
+        message: "their in no post avaiable",
+      });
+    }
 
     res.status(200).json({
       success: true,
@@ -88,12 +96,13 @@ exports.getSinglePost = async (req, res) => {
   }
 };
 exports.EditPost = async (req, res) => {
-  const { originalname, path } = req.file;
-  const parts = originalname.split(".");
-  const ext = parts[parts.length - 1];
-  const newPath = path + "." + ext;
-  fs.renameSync(path, newPath);
   const { id } = req.params;
+  const result = await ImgUploder(req.file);
+  if (!result) {
+    return res
+      .status(400)
+      .json({ message: "error uploading image please try again" });
+  }
 
   const { title, summary, content } = req.body;
   try {
@@ -105,7 +114,7 @@ exports.EditPost = async (req, res) => {
         title,
         summary,
         content,
-        file: newPath,
+        file: result.url,
         author: req.user,
       }
     );

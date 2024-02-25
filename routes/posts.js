@@ -1,7 +1,3 @@
-const multer = require("multer");
-
-const uploadMiddleware = multer({ dest: "uploads/" });
-
 const express = require("express");
 const {
   createPost,
@@ -10,17 +6,16 @@ const {
   EditPost,
 } = require("../controllers/post");
 const { Authorized } = require("../services/Autorized");
+const multer = require("multer");
+const storage = multer.memoryStorage();
+
+const upload = multer({ storage });
 
 const router = express.Router();
 
-router.get("/", Authorized, getAllPosts);
-router.post("/create", Authorized, uploadMiddleware.single("file"), createPost);
-router.get("/single-post/:id", Authorized, getSinglePost);
-router.put(
-  "/post-edit/:id",
-  Authorized,
-  uploadMiddleware.single("file"),
-  EditPost
-);
+router.get("/", getAllPosts);
+router.post("/create", Authorized, upload.single("file"), createPost);
+router.get("/single-post/:id", getSinglePost);
+router.put("/post-edit/:id", Authorized, upload.single("file"), EditPost);
 
 module.exports = router;

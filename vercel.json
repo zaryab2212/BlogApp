@@ -19,9 +19,9 @@
     { "src": "/uploads", "dest": "index.js" },
     { "src": "/uploads/(.*)", "dest": "index.js" },
 
-    { "src": "/posts/create", "dest": "index.js" },
     { "src": "/posts/post-edit/(.*)", "dest": "index.js" },
     { "src": "/posts/single-post/(.*)", "dest": "index.js" },
+    { "src": "/posts/create", "dest": "index.js" },
     { "src": "/posts", "dest": "index.js" },
 
     { "src": "/", "dest": "build/index.html" },
