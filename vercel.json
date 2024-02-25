@@ -14,6 +14,7 @@
     { "src": "/auth", "dest": "index.js" },
     { "src": "/auth/login", "dest": "index.js" },
     { "src": "/auth/create", "dest": "index.js" },
+    { "src": "/auth/active-user", "dest": "index.js" },
 
     { "src": "/auth/(.*)", "dest": "index.js" },
     { "src": "/uploads", "dest": "index.js" },
@@ -23,6 +24,7 @@
     { "src": "/posts/single-post/(.*)", "dest": "index.js" },
     { "src": "/posts/create", "dest": "index.js" },
     { "src": "/posts", "dest": "index.js" },
+    { "src": "/posts/(.*)", "dest": "index.js" },
 
     { "src": "/", "dest": "build/index.html" },
     { "src": "/(.+)", "dest": "build/$1" }
